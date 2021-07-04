@@ -14,18 +14,19 @@ const Home = props => {
                     !!store.users ?
                         store.users.map((user, i) => {
                             return (
-                                <Card title={user.name} extra={<Link to={"/users/" + user.id}>More</Link>} style={{ width: 300 }}>
+                                <Card title={user.name} extra={<Link to={"/" + user.id}>More</Link>} style={{ width: 300 }} key={i}>
                                     <p>{user.username}</p>
                                     <p>{user.email}</p>
                                     <p>{user.phone}</p>
                                 </Card>
                             )
                         })
-                        : (
-                            <div class="text-center" id="undefined">
-                                <div className="spinner-grow text-light" role="status">
-                                </div>
-                            </div>
+                        : ( 
+                            null 
+                        //     <div class="text-center" id="undefined">
+                        //         <div className="spinner-grow text-light" role="status">
+                        //         </div>
+                        //     </div>
                         )
                 }
             </div>
