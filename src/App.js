@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
       <Navbar />
         <Switch>
-            <Route exact path="/:user" component={User} />
+            <Route exact path="/:infoId" component={User} />
             <Route exact path="/" component={Home} />
             <Route component={NotFound} />
         </Switch>
