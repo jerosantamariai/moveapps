@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import { Card } from 'antd';
 
 const Home = props => {
-    const { store, actions } = useContext(Context);
-    const { users } = store;
+    const { store } = useContext(Context);
     return (
         <section>
             <h1>HOME</h1>
@@ -14,7 +13,7 @@ const Home = props => {
                     !!store.users ?
                         store.users.map((user, i) => {
                             return (
-                                <Card title={user.name} extra={<Link to={"/" + user.id}>More</Link>} style={{ width: 300 }} key={i}>
+                                <Card title={user.name} extra={<Link to={"/" + user.name}>More</Link>} style={{ width: 300 }} key={i}>
                                     <p>{user.username}</p>
                                     <p>{user.email}</p>
                                     <p>{user.phone}</p>
@@ -23,10 +22,6 @@ const Home = props => {
                         })
                         : ( 
                             null 
-                        //     <div class="text-center" id="undefined">
-                        //         <div className="spinner-grow text-light" role="status">
-                        //         </div>
-                        //     </div>
                         )
                 }
             </div>
