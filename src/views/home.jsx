@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Context } from '../store/appContext';
 import { Link } from 'react-router-dom';
+import 'antd/dist/antd.css';
 import { Card } from 'antd';
 
 const Home = props => {
@@ -13,21 +14,25 @@ const Home = props => {
                     !!store.users ?
                         store.users.map((user, i) => {
                             return (
-                                <Card title={user.name} extra={<Link to={"/" + user.name}>More</Link>} style={{ width: 300 }} key={i}>
-                                    <p>{user.username}</p>
-                                    <p>{user.email}</p>
-                                    <p>{user.phone}</p>
-                                </Card>
+                                <div className="site-card-border-less-wrapper">
+                                    <Card title={user.name} extra={<Link to={"/" + user.name}>More</Link>} style={{ width: 300 }} key={i}>
+                                        <p>{user.username}</p>
+                                        <p>{user.email}</p>
+                                        <p>{user.phone}</p>
+                                    </Card>
+                                </div>
                             )
                         })
-                        : ( 
-                            null 
+                        : (
+                            null
                         )
                 }
             </div>
 
         </section>
+
     );
+
 }
 
 export default Home;
